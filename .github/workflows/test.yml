@@ -11,8 +11,12 @@ jobs:
           checks: write
           pull-requests: write
         steps:
+          - uses: actions/checkout@v2
+            with:
+            ref: ${{ github.event.pull_request.head.sha }}
           - name: Build
             run: |
+                  cat README.md
                   mkdir test
                   cd test
 
